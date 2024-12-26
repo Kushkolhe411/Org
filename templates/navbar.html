@@ -1,0 +1,19 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="{{ url_for('home') }}" class="logo">EventHub</a>
+        <ul class="navbar-menu">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            {% if 'admin_logged_in' in session %}
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            {% elif 'user_logged_in' in session %}
+                <li><a href="{{ url_for('home') }}">Events</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+            {% endif %}
+            {% if 'admin_logged_in' in session or 'user_logged_in' in session %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

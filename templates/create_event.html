@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+    
+    <div class="create-event-container">
+        <h1>Create New Event</h1>
+        <form action="{{ url_for('create_event') }}" method="POST" class="create-event-form">
+            <div class="form-group">
+                <label for="title">Event Title:</label>
+                <input type="text" id="title" name="title" placeholder="Enter event title" required>
+            </div>
+            <div class="form-group">
+                <label for="day">Event Day:</label>
+                <input type="text" id="day" name="day" placeholder="Enter event day" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Event Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Event Description:</label>
+                <textarea id="description" name="description" placeholder="Enter event description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="type">Event Type:</label>
+                <input type="text" id="type" name="type" placeholder="Enter event type (e.g., Workshop, Seminar)" required>
+            </div>
+            <button type="submit" class="btn-submit">Create Event</button>
+        </form>
+    </div>
+</body>
+</html>
